@@ -123,42 +123,6 @@ glibr::~glibr(){
     
 }
 
-//#if 0
-//    /* Gesture config register dump */
-//    uint8_t reg;
-//    uint8_t val;
-//  
-//    for(reg = 0x80; reg <= 0xAF; reg++) {
-//        if( (reg != 0x82) && \
-//            (reg != 0x8A) && \
-//            (reg != 0x91) && \
-//            (reg != 0xA8) && \
-//            (reg != 0xAC) && \
-//            (reg != 0xAD) )
-//        {
-//         val= I2CreadByte(APDS9960_I2C_ADDR, reg);
-//          if(val==ERROR){
-//              printf("ERROR");
-//          }
-//            /*
-//            print(reg, HEX);
-//            print(": 0x");
-//            println(val, HEX);*/
-//        }
-//    }
-//
-//    for(reg = 0xE4; reg <= 0xE7; reg++) {
-//        val= I2CreadByte(APDS9960_I2C_ADDR, reg);
-//     /*   Serial.print(reg, HEX);
-//        Serial.print(": 0x");
-//        Serial.println(val, HEX);*/
-//    }
-//#endif 
-
-  //  return true;
- 
-
-
 
 /**
  * @brief Enables or disables a feature in the APDS-9960
@@ -179,7 +143,7 @@ bool glibr::setMode(uint8_t mode, uint8_t enable)
     
     /* Change bit(s) in ENABLE register */
     enable = enable & 0x01;
-    if( mode >= 0 && mode <= 6 ) {
+    if( mode <= 6 ) {
         if (enable) {
             reg_val |= (1 << mode);
         } else {
